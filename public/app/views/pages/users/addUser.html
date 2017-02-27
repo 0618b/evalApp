@@ -1,17 +1,36 @@
 <div class="page-header">Create new user</div>
 
-<form>
+<form ng-submit="adduser.addUser(addUdata);">
     <!-- Email -->
     <label>Email</label>
-    <input type="text" name="email" placeholder=" example@example.com">
+    <input type="text" name="email" placeholder=" example@example.com" ng-model="adduser.addUdata.email">
     <br>
     <!-- Username -->
     <label>Username</label>
-    <input type="text" name="username" placeholder=" example">
+    <input type="text" name="username" placeholder=" example" ng-model="adduser.addUdata.username">
     <br>
     <!-- Password -->
     <label>Password</label>
-    <input type="text" name="password" placeholder=" password">
+    <input type="text" name="password" placeholder=" password" ng-model="adduser.addUdata.password">
     <br>
-    <button class="btn btn-primary btn-fill"type="submit">Create</button>
+    <button class="btn btn-primary" type="submit">Create</button>
 </form>
+
+<br>
+
+<div class="jumbotron text-center" ng-show="adduser.loading">
+  <span class="glyphicon glyphicon-report spinner"></span>
+  <p>Loading.....</p>
+</div>
+
+<br>
+
+<div class="row show-hide-message" ng-show="adduser.successMsg">
+    <div class="alert alert-success">{{ adduser.successMsg }}</div>
+</div>
+
+<br>
+
+<div class="row show-hide-message" ng-show="adduser.errorMsg">
+  <div class="aler alert-danger">{{ adduser.errorMsg }}</div>
+</div>

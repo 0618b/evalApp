@@ -11,7 +11,8 @@ angular.module('appRoutes', ['ngRoute'])
     })
     .when('/addUser', {
         templateUrl: 'app/views/pages/users/addUser.html',
-        controller: 'addUserCtrl'
+        controller: 'addUserCtrl',
+        controllerAs: 'adduser'
     })
 
     .otherwise({ redirectTo: '/' });
