@@ -1,4 +1,5 @@
 var User        = require('../models/user');
+var EvalForm    = require('../models/evalForm');
 
 module.exports = function(router) {
         // http://localhost:3000/api/users
@@ -28,6 +29,39 @@ module.exports = function(router) {
                 });
             }
         });
-
         return router;
     }
+
+module.exports = function(router) {
+      // http://localhost:3000/api/addevalforms
+      router.post('/addevalforms', function(req, res) {
+        var ef = new EvalForm();
+        ef.evalFormType = req.body.evalFormType;
+        ef.evalFormYear = req.body.evalFormYear;
+        ef.evalTopic = req.body.evalTopic;
+        ef.evalWeight = req.body.evalWeight;
+        ef.evalCriteria = req.body.evalCriteria;
+        if (req.body.evalFormType == null || req.body.evalFormType == '' || req.body.evalFormYear == null || req.body.evalFormYear == '' || req.body.evalTopic == null || req.body.evalTopic == ''
+        || req.body.evalWeight == null || req.body.evalWeight == '' || req.body.evalCriteria == null || req.body.evalCriteria == '') {
+            res.json({
+              success: false,
+              message: 'โปรดกรอกค่าต่างๆให้ครบ'
+            });
+        } else {
+          ef.save(function(err) {
+            if(err) {
+              res.json({
+                success: false,
+                message: 'มีบางอย่างผิดพลาด!',
+              });
+            } else {
+              res.json({
+                success: true,
+                message: 'บันทึกคำถามเรียบร้อยแล้ว'
+              });
+            }
+          });
+        }
+      });
+  return router;
+}

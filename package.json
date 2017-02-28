@@ -17,6 +17,7 @@
     "body-parser": "^1.16.1",
     "express": "^4.14.1",
     "mongoose": "^4.8.4",
+    "mongoose-validator": "^1.2.5",
     "morgan": "^1.8.1"
   }
 }

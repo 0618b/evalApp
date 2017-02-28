@@ -1,36 +1,48 @@
-<div class="page-header">Create new user</div>
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="header">
+                        <h4 class="title">เพิ่มผู้ใช้ใหม่</h4>
+                    </div>
 
-<form ng-submit="adduser.addUser(addUdata);">
-    <!-- Email -->
-    <label>Email</label>
-    <input type="text" name="email" placeholder=" example@example.com" ng-model="adduser.addUdata.email">
-    <br>
-    <!-- Username -->
-    <label>Username</label>
-    <input type="text" name="username" placeholder=" example" ng-model="adduser.addUdata.username">
-    <br>
-    <!-- Password -->
-    <label>Password</label>
-    <input type="text" name="password" placeholder=" password" ng-model="adduser.addUdata.password">
-    <br>
-    <button class="btn btn-primary" type="submit">Create</button>
-</form>
-
-<br>
-
-<div class="jumbotron text-center" ng-show="adduser.loading">
-  <span class="glyphicon glyphicon-report spinner"></span>
-  <p>Loading.....</p>
-</div>
-
-<br>
-
-<div class="row show-hide-message" ng-show="adduser.successMsg">
-    <div class="alert alert-success">{{ adduser.successMsg }}</div>
-</div>
-
-<br>
-
-<div class="row show-hide-message" ng-show="adduser.errorMsg">
-  <div class="aler alert-danger">{{ adduser.errorMsg }}</div>
-</div>
+                    <div class="content">
+                        <form ng-submit="adduser.addUser(addUdata);">
+                            <div class="form-group">
+                                <label>Email</label>
+                                <input type="text" class="form-control" name="email" placeholder="example@example.com" ng-model="adduser.addUdata.email">
+                            </div>
+                            <div class="form-group">
+                                <label>Username</label>
+                                <input type="text" class="form-control" name="username" placeholder="exampleusername" ng-model="adduser.addUdata.username">
+                            </div>
+                            <div class="form-group">
+                                <label>Password</label>
+                                <input type="text" class="form-control" name="password" placeholder="examplepassword" ng-model="adduser.addUdata.password">
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-block">เพิ่มผู้ใช้งาน</button>
+                            <div class="clearfix"></div>
+                        </form>
+                      <br>
+                    <div class="jumbotron text-center" ng-show="adduser.loading">
+                      <span class="glyphicon glyphicon-report spinner"></span>
+                      <p>Loading.....</p>
+                    </div>
+                    <br>
+                    <div class="row show-hide-message" ng-show="adduser.successMsg">
+                        <div class="alert alert-success">
+                          <button type="button" aria-hidden="true" class="close">×</button>
+                          <span>{{ adduser.successMsg }}</span>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row show-hide-message" ng-show="adduser.errorMsg">
+                        <div class="aler alert-danger">{{ adduser.errorMsg }}</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
