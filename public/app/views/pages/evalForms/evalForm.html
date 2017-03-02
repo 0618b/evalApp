@@ -62,12 +62,12 @@
                                 </div>
                             </div>
                         </div>
-                        <button class="btn btn-primary btn-fill btn-block" ng-click="addEvalForm()">เพิ่มหัวข้อการประเมิน</button>
-                        <button class="btn btn-info btn-fill btn-block" ng-click="update()">แก้ไขหัวข้อการประเมิน</button>
-                        <button class="btn btn-danger btn-fill btn-block" ng-click="deselect()">ล้างข้อมูล</button>
-                        <div class="clearfix"></div>
+                        <button class="btn btn-primary pull-right" ng-click="addEvalForm()">เพิ่มหัวข้อการประเมิน</button>
+                        <button class="btn btn-info pull-right" ng-click="update()">แก้ไขหัวข้อการประเมิน</button>
+                        <button class="btn btn-danger pull-right" ng-click="deselect()">ล้างข้อมูล</button>
                       </form>
 
+                    <br>
                     <br>
 
                     <div class="header">
@@ -87,14 +87,14 @@
                               </tr>
                             </thead>
                             <tbody>
-                            <tr ng-repeat="x in evalform">
+                            <tr ng-repeat="x in evalform.data">
                               <td>{{x.evalFormType}}</td>
                               <td>{{x.evalFormYear}}</td>
                               <td>{{x.evalTopic}}</td>
                               <td>{{x.evalWeight}}</td>
                               <td>{{x.evalCriteria}}</td>
-                              <td><button class="btn btn-danger btn-fill" ng-click="remove(evalform._id)">ลบหัวข้อการประเมิน</button></td>
-                              <td><button class="btn btn-warning btn-fill" ng-click="edit(evalform._id)">แก้ไขหัวข้อการประเมิน</button></td>
+                              <td><button class="btn btn-danger" ng-click="remove(x._id)">ลบหัวข้อการประเมิน</button></td>
+                              <td><button class="btn btn-warning" ng-click="edit(x._id)">แก้ไขหัวข้อการประเมิน</button></td>
                             </tr>
                           </tbody>
                         </table>
@@ -103,6 +103,7 @@
                     <div class="header">
                         <h4 class="title">แบบประเมินผลการปฏิบัติงานของพนักงานส่วนท้องถิ่น (ประเมินตนเอง)</h4>
                     </div>
+                    <br>
                 <div class="content table-responsive table-full-width">
                         <table class="table table-hover table-striped">
                             <thead>
@@ -117,14 +118,14 @@
                               </tr>
                             </thead>
                             <tbody>
-                            <tr ng-repeat="x in evalform">
+                            <tr ng-repeat="x in evalform.data">
                               <td>{{x.evalFormType}}</td>
                               <td>{{x.evalFormYear}}</td>
                               <td>{{x.evalTopic}}</td>
                               <td>{{x.evalWeight}}</td>
                               <td>{{x.evalCriteria}}</td>
-                              <td><button class="btn btn-danger btn-fill" ng-click="remove(evalform._id)">ลบหัวข้อการประเมิน</button></td>
-                              <td><button class="btn btn-warning btn-fill" ng-click="edit(evalform._id)">แก้ไขหัวข้อการประเมิน</button></td>
+                              <td><button class="btn btn-danger" ng-click="remove(x._id)">ลบหัวข้อการประเมิน</button></td>
+                              <td><button class="btn btn-warning" ng-click="edit(x._id)">แก้ไขหัวข้อการประเมิน</button></td>
                             </tr>
                           </tbody>
                         </table>

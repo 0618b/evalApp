@@ -40,10 +40,10 @@ app.post('/ngevalform', function(req, res) {
     });
 });
 
-app.get('/ngevalform/:id', function (req, res) {
+app.delete('/ngevalform/:id', function (req, res) {
     var id = req.params.id;
     console.log(id);
-    database.evalforms.findOne({_id: mongojs.ObjectId(id)}, function (err, doc) {
+    database.evalforms.remove({_id: mongojs.ObjectId(id)}, function (err, doc) {
         res.json(doc);
     });
 });
