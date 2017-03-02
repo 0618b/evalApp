@@ -64,6 +64,7 @@
                         </div>
                         <button class="btn btn-primary btn-fill btn-block" ng-click="addEvalForm()">เพิ่มหัวข้อการประเมิน</button>
                         <button class="btn btn-info btn-fill btn-block" ng-click="update()">แก้ไขหัวข้อการประเมิน</button>
+                        <button class="btn btn-danger btn-fill btn-block" ng-click="deselect()">ล้างข้อมูล</button>
                         <div class="clearfix"></div>
                       </form>
 
@@ -86,7 +87,7 @@
                               </tr>
                             </thead>
                             <tbody>
-                            <tr ng-repeat="x in evalform">
+                            <tr ng-repeat="x in evalformlist">
                               <td>{{x.evalFormType}}</td>
                               <td>{{x.evalFormYear}}</td>
                               <td>{{x.evalTopic}}</td>
@@ -116,7 +117,7 @@
                               </tr>
                             </thead>
                             <tbody>
-                            <tr ng-repeat="x in evalform">
+                            <tr ng-repeat="x in evalformlist">
                               <td>{{x.evalFormType}}</td>
                               <td>{{x.evalFormYear}}</td>
                               <td>{{x.evalTopic}}</td>
