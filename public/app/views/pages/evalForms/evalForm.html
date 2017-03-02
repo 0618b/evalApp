@@ -1,37 +1,136 @@
 <div class="content">
-    <div class="container-fluid">
+    <div class="container-fluid" ng-controller="evalFormControllers">
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
                     <div class="header">
-                        <h4 class="title">แบบประเมินประสิทธิภาพและประสิทธิผลการปฏิบัติงาน</h4>
-                        <br>
-                        <a href="/addEvalForm" class="btn btn-primary btn-fill">เพิ่มคำถามที่ใช้ในการประเมิน</a>
-                        <br>
+                        <h4 class="title">เพิ่มแบบประเมิน</h4>
                     </div>
+                    <div class="content">
+                      <form>
+                        <div class="row">
+                          <div class="col-md-6">
+                              <div class="form-group">
+                                <label>ประเภทของแบบประเมิน</label>
+                                  <select class="form-control" id="evalFormType" ng-model="evalform.evalFormType" placeholder="กรุณาเลือกประเภทของแบบประเมิน" required>
+                                    <option>แบบประเมินประสิทธิภาพและประสิทธิผลการปฏิบัติงาน</option>
+                                    <option>แบบประเมินผลการปฏิบัติงานของพนักงานส่วนท้องถิ่น (ประเมินตนเอง)</option>
+                                  </select>
+                              </div>
+                          </div>
+                          <div class="col-md-3">
+                              <div class="form-group">
+                                <label>ปีที่ใช้แบบประเมิน</label>
+                                  <select class="form-control" id="evalFormYear" ng-model="evalform.evalFormYear" placeholder="กรุณาเลือกปีที่ใช้แบบประเมิน" required>
+                                    <option>ประจำปี 2560</option>
+                                    <option>ประจำปี 2561</option>
+                                    <option>ประจำปี 2562</option>
+                                  </select>
+                              </div>
+                          </div>
+                          <div class="col-md-3">
+                            <div class="form-group">
+                              <label>น้ำหนักคะแนน</label>
+                                <select class="form-control" id="evalWeight" ng-model="evalform.evalWeight" placeholder="กรุณาเลือกน้ำหนักคะแนนของแบบประเมิน" required>
+                                  <option>1</option>
+                                  <option>2</option>
+                                  <option>3</option>
+                                  <option>4</option>
+                                  <option>5</option>
+                                  <option>6</option>
+                                  <option>7</option>
+                                  <option>8</option>
+                                  <option>9</option>
+                                  <option>10</option>
+                                </select>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label>ตัวบ่งชี้การประเมิน</label>
+                                    <textarea rows="3" class="form-control" id="evalTopic" placeholder="กรุณากรอกตัวบ่งชี้การประเมิน"  ng-model="evalform.evalTopic" required></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label>เกณฑ์การพิจารณา</label>
+                                    <textarea rows="4" class="form-control" id="evalCriteria" placeholder="กรุณากรอกเกณฑ์การพิจารณา" ng-model="evalform.evalCriteria" required></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="btn btn-primary btn-fill btn-block" ng-click="addEvalForm()">เพิ่มหัวข้อการประเมิน</button>
+                        <button class="btn btn-info btn-fill btn-block" ng-click="update()">แก้ไขหัวข้อการประเมิน</button>
+                        <div class="clearfix"></div>
+                      </form>
 
+                    <br>
+
+                    <div class="header">
+                        <h4 class="title">แบบประเมินประสิทธิภาพและประสิทธิผลการปฏิบัติงาน</h4>
+                    </div>
                     <div class="content table-responsive table-full-width">
                         <table class="table table-hover table-striped">
                             <thead>
-                              <th>ประเภทของแบบประเมิน</th>
-                              <th>ปีที่ใช้แบบประเมิน</th>
-                              <th>ตัวบ่งชี้การประเมิน</th>
-                              <th>น้ำหนักคะแนน</th>
-                              <th>เกณฑ์การพิจารณา</th>
+                              <tr>
+                                <th>ประเภทของแบบประเมิน</th>
+                                <th>ปีที่ใช้แบบประเมิน</th>
+                                <th>ตัวบ่งชี้การประเมิน</th>
+                                <th>น้ำหนักคะแนน</th>
+                                <th>เกณฑ์การพิจารณา</th>
+                                <th>การกระทำ</th>
+                                <th>&nbsp;</th>
+                              </tr>
                             </thead>
                             <tbody>
-                                <tr ng-model="evalForm">
-                                  <td>1</td>
-                                  <td>Dakota Rice</td>
-                                  <td>$36,738</td>
-                                  <td>Niger</td>
-                                  <td>Oud-Turnhout</td>
-                                </tr>
-                            </tbody>
+                            <tr ng-repeat="x in evalform">
+                              <td>{{x.evalFormType}}</td>
+                              <td>{{x.evalFormYear}}</td>
+                              <td>{{x.evalTopic}}</td>
+                              <td>{{x.evalWeight}}</td>
+                              <td>{{x.evalCriteria}}</td>
+                              <td><button class="btn btn-danger btn-fill" ng-click="remove(evalform._id)">ลบหัวข้อการประเมิน</button></td>
+                              <td><button class="btn btn-warning btn-fill" ng-click="edit(evalform._id)">แก้ไขหัวข้อการประเมิน</button></td>
+                            </tr>
+                          </tbody>
+                        </table>
+                    </div>
+
+                    <div class="header">
+                        <h4 class="title">แบบประเมินผลการปฏิบัติงานของพนักงานส่วนท้องถิ่น (ประเมินตนเอง)</h4>
+                    </div>
+                <div class="content table-responsive table-full-width">
+                        <table class="table table-hover table-striped">
+                            <thead>
+                              <tr>
+                                <th>ประเภทของแบบประเมิน</th>
+                                <th>ปีที่ใช้แบบประเมิน</th>
+                                <th>ตัวบ่งชี้การประเมิน</th>
+                                <th>น้ำหนักคะแนน</th>
+                                <th>เกณฑ์การพิจารณา</th>
+                                <th>การกระทำ</th>
+                                <th>&nbsp;</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                            <tr ng-repeat="x in evalform">
+                              <td>{{x.evalFormType}}</td>
+                              <td>{{x.evalFormYear}}</td>
+                              <td>{{x.evalTopic}}</td>
+                              <td>{{x.evalWeight}}</td>
+                              <td>{{x.evalCriteria}}</td>
+                              <td><button class="btn btn-danger btn-fill" ng-click="remove(evalform._id)">ลบหัวข้อการประเมิน</button></td>
+                              <td><button class="btn btn-warning btn-fill" ng-click="edit(evalform._id)">แก้ไขหัวข้อการประเมิน</button></td>
+                            </tr>
+                          </tbody>
                         </table>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
 </div>

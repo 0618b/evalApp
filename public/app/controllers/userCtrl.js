@@ -1,6 +1,6 @@
 angular.module('userControllers', ['userServices'])
 
-  .controller('addUserCtrl', function($http, $location, $timeout, User) {
+  .controller('addUserControllers', function($http, $location, $timeout, User) {
 
     var app = this;
 

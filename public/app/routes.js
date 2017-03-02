@@ -8,15 +8,20 @@ angular.module('appRoutes', ['ngRoute'])
     }) //default location
     .when('/evalForm', {
         templateUrl: 'app/views/pages/evalForms/evalForm.html'
+        //controller: 'evalFormControllers'
+    })
+    .when('/user', {
+        templateUrl: 'app/views/pages/users/user.html'
+        //controller: 'userControllers'
     })
     .when('/addEvalForm', {
         templateUrl: 'app/views/pages/evalForms/addEvalForm.html',
-        controller: 'addEvalFormCtrl',
+        controller: 'addEvalFormControllers',
         controllerAs: 'addef'
     })
     .when('/addUser', {
         templateUrl: 'app/views/pages/users/addUser.html',
-        controller: 'addUserCtrl',
+        controller: 'addUserControllers',
         controllerAs: 'adduser'
     })
 

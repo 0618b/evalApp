@@ -4,7 +4,7 @@ angular.module('userServices', [])
 
     // User.create(addUdata)
     userFactory.create = function(addUdata) {
-      return $http.post('/api/users', addUdata);
+      return $http.post('/api/addusers', addUdata);
     }
     return userFactory;
   });

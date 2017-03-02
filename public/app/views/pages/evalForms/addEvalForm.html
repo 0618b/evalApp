@@ -47,21 +47,19 @@
                             </div>
                           </div>
                         </div>
-
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label>ตัวบ่งชี้การประเมิน</label>
-                                    <textarea rows="3" class="form-control" placeholder="กรุณากรอกตัวบ่งชี้การประเมิน"  ng-model="addef.addEfdata.evalTopic" required></textarea>
+                                    <textarea rows="3" class="form-control" id="evalTopic" placeholder="กรุณากรอกตัวบ่งชี้การประเมิน"  ng-model="addef.addEfdata.evalTopic" required></textarea>
                                 </div>
                             </div>
                         </div>
-
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label>เกณฑ์การพิจารณา</label>
-                                    <textarea rows="4" class="form-control" placeholder="กรุณากรอกเกณฑ์การพิจารณา" ng-model="addef.addEfdata.evalCriteria" required></textarea>
+                                    <textarea rows="4" class="form-control" id="evalCriteria" placeholder="กรุณากรอกเกณฑ์การพิจารณา" ng-model="addef.addEfdata.evalCriteria" required></textarea>
                                 </div>
                             </div>
                         </div>
@@ -76,7 +74,7 @@
                         <span class="glyphicon glyphicon-report spinner"></span>
                         <p>Loading.....</p>
                       </div>
-
+                      <br>
                       <div class="row show-hide-message" ng-show="addef.successMsg">
                           <div class="alert alert-success fade in">
                             <span>{{ addef.successMsg }}</span>
