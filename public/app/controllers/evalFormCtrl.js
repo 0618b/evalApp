@@ -6,7 +6,7 @@ angular.module('evalFormControllers', ['evalFormServices'])
         $http.get('/ngevalform').then(function(success, response) {
           console.log("I got the data that I requested");
           $scope.evalforms = response;
-          $scope.evalformlist = {};
+          $scope.evalform = {};
         }, function(err) {
           console.log(err);
         });
